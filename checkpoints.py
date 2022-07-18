@@ -34,14 +34,37 @@ class Solution:
         # return type: int
         
         # TODO: Write code below to return an int with the solution to the prompt
-        highestdiff = 0 
+        # highestdiff = 0
         
-        for i in range(len(checkpoints)):
-            for j in range(i+1, len(checkpoints)-1):
-                if abs(j-i) > highestdiff: 
-                    highestdiff = abs(j-i)
+        # for i in range(len(checkpoints)-1):
+        #     for j in range(i+1, len(checkpoints)):
+        #         if abs(j-i) > highestdiff: 
+        #             highestdiff = abs(j-i)
         
+        def bubblesort(arr):
+            for i in range(0, len(arr)):
+                for j in range(0, len(arr)-1):
+                    if arr[j] > arr[j+1]:
+                        temp = arr[j]
+                        arr[j] = arr[j+1]
+                        arr[j+1] = temp
+            return arr
+        
+        checkpoints = bubblesort(checkpoints)
+
+        distances = []
+
+        for i in range(len(checkpoints) - 1):
+            distances.append(checkpoints[i+1] - checkpoints[i])
+
+        distances = bubblesort(distances)
+
+        return distances[len(checkpoints)-2]
+
+
+
         return highestdiff
+        
                 
 
 
