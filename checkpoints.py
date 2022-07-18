@@ -37,7 +37,7 @@ class Solution:
         highestdiff = 0 
         
         for i in range(len(checkpoints)):
-            for j in range(i+1, len(checkpoints - 1)):
+            for j in range(i+1, len(checkpoints)-1):
                 if abs(j-i) > highestdiff: 
                     highestdiff = abs(j-i)
         
